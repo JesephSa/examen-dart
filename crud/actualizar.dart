@@ -1,33 +1,63 @@
-//actualizar
+// Actualizar
 import 'dart:io';
-import '../main.dart';
 import '../Crud/crear.dart';
 import '../Crud/listar.dart';
-import '../Crud/actualizar.dart';
-import '../Crud/eliminar.dart';
 
 void actualizar() {
 
-  print("actualizar producto");
-  print("ingrese el numero del producto a actualizar;");
-  int numProducto = int.parse(stdin.readLineSync()!);
 
-  if (numProducto > 0 ) {
-    
-    print("ingrese el nuevo nombre del producto:");
-    String nuevoNombre = stdin.readLineSync()!;
-    nombre[numProducto - 1] = nuevoNombre;
+  if (productos.isEmpty) {
 
-    print("ingrese el nuevo precio del producto:");
-    double nuevoPrecio = double.parse(stdin.readLineSync()!);
-    precio[numProducto - 1] = nuevoPrecio;
-
-    print("ingrese la nueva cantidad del producto:");
-    int nuevaCantidad = int.parse(stdin.readLineSync()!);
-    cantidad[numProducto - 1] = nuevaCantidad;
-
-  } else {
-    print("numero de producto no valido");
+    print("No hay productos registrados.");
+    return;
   }
 
+  listarProductos(productos);
+
+  print("\nIngrese el número del producto a actualizar:");
+  int numProducto = int.parse(stdin.readLineSync()!);
+
+  if (numProducto > 0 && numProducto <= productos.length) {
+
+    int indice = numProducto - 1;
+
+    print(
+      "Ingrese el nuevo nombre "
+      "(Enter para conservar: ${productos[indice]["nombre"]})"
+    );
+
+    String nuevoNombre = stdin.readLineSync()!;
+
+    if (nuevoNombre.trim().isNotEmpty) {
+      productos[indice]["nombre"] = nuevoNombre;
+    }
+
+    print(
+      "Ingrese el nuevo precio "
+      "(Enter para conservar: ${productos[indice]["precio"]})"
+    );
+
+    String nuevoPrecio = stdin.readLineSync()!;
+
+    if (nuevoPrecio.trim().isNotEmpty) {
+      productos[indice]["precio"] = double.parse(nuevoPrecio);
+    }
+
+    print(
+      "Ingrese la nueva cantidad "
+      "(Enter para conservar: ${productos[indice]["cantidad"]})"
+    );
+
+    String nuevaCantidad = stdin.readLineSync()!;
+
+    if (nuevaCantidad.trim().isNotEmpty) {
+      productos[indice]["cantidad"] = int.parse(nuevaCantidad);
+    }
+
+    print("Producto actualizado correctamente.");
+
+  } else {
+
+    print("Número de producto no válido.");
+  }
 }
