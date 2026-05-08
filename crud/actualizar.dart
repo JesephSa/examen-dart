@@ -6,6 +6,8 @@ import '../Crud/listar.dart';
 import '../Crud/actualizar.dart';
 import '../Crud/eliminar.dart';
 
+List<Map<String, dynamic>> productos = [];
+
 void actualizar() {
 
   print("actualizar producto");
@@ -16,15 +18,15 @@ void actualizar() {
     
     print("ingrese el nuevo nombre del producto:");
     String nuevoNombre = stdin.readLineSync()!;
-    nombre[numProducto - 1] = nuevoNombre;
+    productos[numProducto - 1]['nombre'] = nuevoNombre;
 
     print("ingrese el nuevo precio del producto:");
     double nuevoPrecio = double.parse(stdin.readLineSync()!);
-    precio[numProducto - 1] = nuevoPrecio;
+    productos[numProducto - 1]['precio'] = nuevoPrecio;
 
     print("ingrese la nueva cantidad del producto:");
     int nuevaCantidad = int.parse(stdin.readLineSync()!);
-    cantidad[numProducto - 1] = nuevaCantidad;
+    productos[numProducto - 1]['cantidad'] = nuevaCantidad;
 
   } else {
     print("numero de producto no valido");
