@@ -5,6 +5,7 @@ import '../crud/listar.dart';
 import '../crud/actualizar.dart';
 import '../crear.dart';
 
+List<Map<String, dynamic>> productos = [];
 
 // FUNCIÓN ELIMINAR PRODUCTO
 void eliminarProducto() {
