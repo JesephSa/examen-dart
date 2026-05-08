@@ -1,6 +1,9 @@
 import 'dart:io';
 
+import 'crud/crear.dart';
 import 'crud/listar.dart';
+import 'crud/actualizar.dart';
+import 'crud/eliminar.dart';
 
 List<Map<String, dynamic>> productos = [];
 
@@ -20,7 +23,7 @@ void main() {
 
     switch (opcion) {
       case 1:
-        
+        crear();
         break;
 
       case 2:
@@ -28,11 +31,11 @@ void main() {
         break;
 
       case 3:
-        
+        actualizar();
         break;
 
       case 4:
-        
+        eliminar();
         break;
 
       case 5:
