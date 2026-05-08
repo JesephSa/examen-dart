@@ -1,7 +1,7 @@
 // Actualizar
 import 'dart:io';
-import '../Crud/crear.dart';
-import '../Crud/listar.dart';
+import '../crud/crear.dart';
+import '../crud/listar.dart';
 
 void actualizar() {
 
